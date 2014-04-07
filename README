@@ -35,13 +35,15 @@ Always play with the vimrc.local and gvimrc.local files
 GIT Help
 =========
 SETUP initial repo
-touch README.md
 git init
-git add README.md
+git add .
 git commit -m "first commit"
 git remote add origin https://github.com/arangan/dotvim.git
+git config --global user.name arangan
 git push -u origin master
 
+Check your settings
+git config --list
 
 List current pull and push urls
 -------------------------------
@@ -104,3 +106,15 @@ $ git checkout stable -- filename  <-- checkout from the stable branch
 $ git checkout origin/master -- filename 
 $ git chechout HEAD -- filename   <-- the version from the most recent commit
 $ git checkout HEAD^ -- filename  <-- the version before the most recent commit
+
+
+Submodules
+===========
+git submodule add https://github.com/jlanzarotta/bufexplorer.git bundle/bufexplorer
+git submodule add https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim
+git submodule add https://github.com/scrooloose/nerdtree.git bundle/nerdtree
+git submodule add https://github.com/ervandew/supertab.git bundle/supertab
+git submodule add https://github.com/scrooloose/syntastic.git bundle/syntastic
+git submodule add https://github.com/majutsushi/tagbar.git bundle/tagbar
+git submodule add https://github.com/jeetsukumaran/vim-buffergator.git bundle/vim-buffergator
+git submodule add https://github.com/altercation/vim-colors-solarized.git bundle/vim-colors-solarized
