@@ -45,6 +45,9 @@ git push -u origin master
 Check your settings
 git config --list
 
+if you want to fix the settings after a commit
+git commit --amend --reset-author
+
 List current pull and push urls
 -------------------------------
 $ git remote -v
