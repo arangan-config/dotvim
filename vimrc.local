@@ -1,0 +1,12 @@
+"Set the font
+  if g:os == 'osx'
+    set guifont=Monaco:h18
+  elseif g:os == 'Linux'
+    set guifont=Monospace\ 11
+  else
+    set guifont=Consolas:h12
+  endif
+  
+"Set the Colour Scheme
+colorscheme pablo
+

@@ -1,0 +1,29 @@
+"Hide the menu bar and tool bar
+  if g:os=='Windows' || g:os=='Linux'
+    set guioptions -=m
+    set guioptions -=T
+  endif
+
+"Font and colorscheme
+  if g:os=='Windows' 
+    set guifont=Consolas:h10:cANSI
+
+    set background=dark
+    colorscheme solarized
+":!start D:/bin/vimshort.exe
+
+  elseif g:os=='Linux'
+    " If this is linux this is one way of maximizing the window
+    set lines=300 columns=300
+
+    set guifont=DejaVu\ Sans\ Mono\ 11
+    "set guifont=Monaco\ 10.5
+    colorscheme vividchalk
+
+  elseif g:os=='osx'
+    set guifont=Monaco:h18
+    colorscheme molokai
+
+  else
+    "take care of other OS like BSD etc
+  endif

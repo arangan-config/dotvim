@@ -1,0 +1,106 @@
+Installation:
+
+On LINUX, MAC or Nixes
+=======================
+  git clone git://github.com/arangan/dotvim.git ~/.vim
+
+Create Symlinks:
+
+  $ ln -s ~/.vim/vimrc ~/.vimrc
+  $ ln -s ~/.vim/gvimrc ~/.gvimrc
+
+Either make links to local file or create your own local file
+--------------------------------------------------------------
+  $ ln -s ~/.vim/vimrc.local ~/.vimrc.local
+  $ ln -s ~/.vim/gvimrc.local ~/.gvimrc.local
+
+On Windows
+===========
+  git clone git://github.com/arangan/dotvim.git %HOMEDRIVE%%HOMEPATH%\vimfiles
+  or
+  download the repository and unzip to %HOMEDRIVE%%HOMEPATH%\vimfiles
+
+  C:\> mklink  %%HOMEDRIVE%%HOMEPATH%\_vimrc HOMEDRIVE%%HOMEPATH%\vimfiles\vimrc
+  C:\> mklink  %%HOMEDRIVE%%HOMEPATH%\_gvimrc HOMEDRIVE%%HOMEPATH%\vimfiles\gvimrc
+
+Either make links to local file or create your own local file
+--------------------------------------------------------------
+  C:\> mklink  %%HOMEDRIVE%%HOMEPATH%\_vimrc.local HOMEDRIVE%%HOMEPATH%\vimfiles\vimrc.local
+  C:\> mklink  %%HOMEDRIVE%%HOMEPATH%\_gvimrc.local HOMEDRIVE%%HOMEPATH%\vimfiles\gvimrc.local
+
+
+Always play with the vimrc.local and gvimrc.local files
+
+
+GIT Help
+=========
+SETUP initial repo
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/arangan/dotvim.git
+git push -u origin master
+
+
+List current pull and push urls
+-------------------------------
+$ git remote -v
+or
+$ git remote list
+or
+$ git remote show origin
+
+origin  git://github.com/arangan/dotvim.git (fetch)
+origin  git://github.com/arangan/dotvim.git (push)
+
+
+Set git remote url
+------------------
+$ git remote set-url origin https://github.com/arangan/dotvim.git    (This will change both the push and pull URLs)
+$ git remote set-url --push origin https://github.com/arangan/dotvim.git    (This will change only the push URLs)
+
+
+
+Commit to Github
+----------------
+$ git add .
+$ git commit -m "my message"
+$ git push origin master
+
+
+To delete a directory from git
+------------------------------
+$ git rm -f /my/folder
+
+
+Show all SHA1 for recent commits
+--------------------------------
+$ git log
+$ git rev-parse HEAD
+$ git rev-parse --short HEAD   (just show the short hash)
+
+$ git ls-remote --heads origin (Show the remote origin's hash)
+
+
+List all the changed files
+--------------------------
+$ git diff --name-only SHA1 eg. 3e135f98887d2c87bc77f8b3ebdbeb01586d9d4a
+.netrwhist
+tags
+vimrc
+
+Revert back all the changes
+---------------------------
+$ git reset --hard
+HEAD is now at 3e135f9 major clean up. Files properly created
+
+Revert changes to only one file
+-------------------------------
+$ git checkout -- filename       <-- this basically pulls the file from the last commit.
+
+Other variations
+$ git checkout stable -- filename  <-- checkout from the stable branch
+$ git checkout origin/master -- filename 
+$ git chechout HEAD -- filename   <-- the version from the most recent commit
+$ git checkout HEAD^ -- filename  <-- the version before the most recent commit

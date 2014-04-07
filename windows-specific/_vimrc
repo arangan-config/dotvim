@@ -1,0 +1,29 @@
+set ignorecase
+if $HOME==join(['C:/users/', $USERNAME],'') || $HOME==join(['D:/users/', $USERNAME],'')
+	finish
+endif
+
+let g:vimfiles=join(['C:/users/', $USERNAME, '/vimfiles/'],'')
+if !isdirectory(g:vimfiles)
+	let g:vimfiles=substitute(g:vimfiles,'C:/','D:/','')
+	if !isdirectory(g:vimfiles)
+		unlet g:vimfiles
+		finish
+	else
+		let g:homeDir = join(['D:/users/', $USERNAME],'')
+	endif
+else
+	let g:homeDir = join(['C:/users/', $USERNAME],'')
+endif
+
+exec ":set runtimepath+=".g:vimfiles
+
+let vimrc=join([g:vimfiles,'vimrc'],'')
+if filereadable(vimrc)
+	exec ":source ".vimrc
+endif
+
+let vimrclocal=join([g:homeDir,'/_vimrc.local'],'')
+if filereadable(vimrclocal)
+	exec ":source ".vimrclocal
+endif

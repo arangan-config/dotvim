@@ -1,0 +1,83 @@
+Windows Specific Config
+=======================
+
+The purpose of these two config files, is to solve the following scenario.
+
+A windows machine has the following drives
+C:\> and D:\>
+
+The home directory would be typically 
+C:\Users\<username>
+
+But if D:\> is where all the data is stored(that is how I keep my machine) and C:\> holds only the OS then
+one would want the vimconfig files to be in 
+D:\Users\<username>
+
+However, it is possible that this machine is also used at office and the logon script at the office changes the 
+home directory to H:\> which might be a shared drive on the office network.
+
+So, now, one would need to keep two sets of vimrc , one on the local drive and the other on the network drive.
+vim would load the config files based on the $HOME directory.
+
+
+
+Solution
+========
+The two files _vimrc and _gvimrc can help in solving the scenario.
+It checks if the home directory of the user is either
+C:\Users\<username> or D:\Users\<username>
+
+If it is, then nothing is done and vim loads the vimrc by default.
+
+However if the home drive is something different from the above 2 mentioned, eg, H:\> etc. then
+the provided files check the above 2 mentioned folders for the vimrc and gvimrc files.
+
+And finally tries to execute the vimrc.local and gvimrc.local files.
+
+Eg: If $HOME=H:\> is the home directory 
+    and the config files are in D:\Users\user.name then 
+    this is how the scripts will get executed.
+
+  D:\Users\user.name\vimfiles\vimrc
+  D:\Users\user.name\vimfiles\gvimrc
+
+    (the vimrc and gvimrc have includes inside them to look for $HOME\_vimrc.local and $HOME\_gvimrc.local)
+    (this is to make it compatible in a *nix scenario where $HOME is typically the user's home dir on the box)
+
+are executed and then finally
+
+  D:\Users\user.name\_vimrc.local
+  D:\Users\user.name\_gvimrc.local
+
+INSTALLATION
+============
+Copy the two files _vimrc and _gvimrc to the folder where the vim is installed, typically the $VIM folder.
+
+Eg. if vim is installed in 
+    C:\bin\vim
+
+    then copy the files to
+    C:\bin\vim\_vimrc
+    C:\bin\vim\_gvimrc
+
+
+TIP
+===
+Just like in *nix, make a link on the windows machine to point to the config files.
+
+Eg. If your home drive is C:\Users\<username>, but you want your config in D:\Users\<username>
+    make links to point the files
+    C:\Users\<username>\vimfiles -> D:\Users\<username>\vimfiles
+    C:\Users\<username>\_vimrc.local -> D:\Users\<username>\_vimrc.local
+    C:\Users\<username>\_gvimrc.local -> D:\Users\<username>\_gvimrc.local
+
+Also, the vimfiles directory;  D:\Users\<username>\vimfiles\
+  contains the files vimrc.local and gvimrc.local
+
+So links can be made for those files too instead of creating
+    D:\Users\<username>\_vimrc.local -> D:\Users\<username>\vimfiles\vimrc.local 
+    D:\Users\<username>\_gvimrc.local -> D:\Users\<username>\vimfiles\gvimrc.local 
+
+lookup the mklink command. 
+This will work only on Vista and Above on NTFS.
+May not work across network drives.

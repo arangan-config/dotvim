@@ -1,0 +1,18 @@
+set ignorecase
+if $HOME==join(['C:/users/', $USERNAME],'') || $HOME==join(['D:/users/', $USERNAME],'')
+	finish
+endif
+
+if exists('g:vimfiles')
+	let gvimrc=join([g:vimfiles,'gvimrc'],'')
+	if filereadable(gvimrc)
+		exec ":source ".gvimrc
+	endif
+endif
+
+if exists('g:homeDir')
+	let gvimrclocal=join([g:homeDir,'/_gvimrc.local'],'')
+	if filereadable(gvimrclocal)
+		exec ":source ".gvimrclocal
+	endif
+endif
