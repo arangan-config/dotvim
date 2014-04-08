@@ -28,3 +28,6 @@
 [submodule "bundle/Wombat"]
 	path = bundle/Wombat
 	url = https://github.com/vim-scripts/Wombat.git
+[submodule "bundle/vim-vividchalk"]
+	path = bundle/vim-vividchalk
+	url = https://github.com/tpope/vim-vividchalk.git

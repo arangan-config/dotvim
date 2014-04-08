@@ -1,8 +1,9 @@
 "########## Pathogen First before anything else ########## 
-  filetype off
-  call pathogen#infect()
-  call pathogen#helptags() " :Helptags  " Enable this if you want vim to scan and load all docs from the bundles
-  set ignorecase
+	filetype off
+	call pathogen#infect()
+  call pathogen#helptags() " :Helptags   Enable this if you want vim to scan and load all docs from the bundles
+	set ignorecase
+
 
 "########## Auto-Detection########## 
   if has("mac") || has("unix")
@@ -232,6 +233,7 @@
     inoremap <C-Enter> <C-o>mT<C-o>o<C-o>`T
     inoremap <C-S-Enter> <C-o>mT<C-o>O<C-o>`T
 
+
    "########## Control Keys ##########
        nnoremap <silent> <C-\> :set list!<CR>
      " If Ctrl+u or Ctrl+e is pressed in insert mode, then Esc and u will
@@ -316,6 +318,7 @@
       au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   endif
 
+
 "########## Final options and Look for vimrc.local file ########## 
   if !g:gui 
     if g:os=='Windows'
@@ -330,6 +333,7 @@
       endif
     endif 
   endif
+
 
 "########## Function Definitions ##########
   "function! IncrementCharacter(char)
