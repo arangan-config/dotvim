@@ -99,9 +99,9 @@
 
   "Do not copy stuff to the system clipboard, use leader-P
   if has('unnamedplus')
-    set clipboard=unnamedplus  " Share X windows clipboard.
+    set clipboard-=unnamedplus  " Share X windows clipboard.
   else
-    set clipboard=unnamed  " Share system clipboard.
+    set clipboard-=unnamed  " Share system clipboard.
   endif
 
   set mouse=a
@@ -194,8 +194,10 @@
     nmap <silent> <C-Down> <A-j>
     if !g:gui
       nmap <silent> <A-b> :BuffergatorToggle<cr>
+      nmap <silent> \b :BufExplorerVerticalSplit<Cr>
     else
       nmap <silent> <A-b> :BufExplorerVerticalSplit<Cr>
+      nmap <silent> \b :BuffergatorToggle<cr>
     endif
     nmap <silent> <A-h> 0
     nmap <silent> <A-l> $
