@@ -101,7 +101,7 @@
   if has('unnamedplus')
     set clipboard=unnamedplus  " Share X windows clipboard.
   else
-    set clipboard=unnamed  " Share system clipboard.
+    set clipboard-=unnamed  " Share system clipboard.
   endif
 
   set mouse=a
