@@ -1,0 +1,9 @@
+Some hints for me, as i often forget certain key combinations
+
+Opening a file in readonly mode
+vim -R <fn>    -- hint make an alias v = 'vim -R'
+if file already open do :set ro
+
+This allows buffer modification... 
+To completely disallow modification :set nomodifiable or :set noma
+To allow modification use :set modifiable or :set ma
