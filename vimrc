@@ -266,6 +266,7 @@
     nnoremap <silent> <F9> :TagbarToggle<CR>
     nnoremap <silent> <F8> :TlistToggle<CR>
    let g:buffergator_suppress_keymaps = 1
+   let g:buffergator_autoexpand_on_split = 0 "disable resizing when calling buffergator
    let g:bufExplorerDisableDefaultKeyMapping=1 "disable this otherwise ,Leader B gets in the way
 
 "########## Omni Completion ########## 
