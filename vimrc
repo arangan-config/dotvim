@@ -1,9 +1,9 @@
 "########## Pathogen First before anything else ########## 
-	filetype off
-	call pathogen#infect()
-  call pathogen#helptags() " :Helptags   Enable this if you want vim to scan and load all docs from the bundles
-	set ignorecase
+	"filetype off
+	"call pathogen#infect()
+    "call pathogen#helptags() " :Helptags   Enable this if you want vim to scan and load all docs from the bundles
 
+	set ignorecase
 
 "########## Auto-Detection########## 
   if has("mac") || has("unix")
