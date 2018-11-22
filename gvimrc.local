@@ -9,7 +9,7 @@
     set guifont=Monaco:h10:cANSI
 
     set background=dark
-    colorscheme solarized
+    colorscheme pablo
 ":!start D:/bin/vimshort.exe
 
   elseif g:os=='Linux'
