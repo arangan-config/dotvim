@@ -6,7 +6,7 @@
 
 "Font and colorscheme
   if g:os=='Windows' 
-    set guifont=Consolas:h10:cANSI
+    set guifont=Monaco:h10:cANSI
 
     set background=dark
     colorscheme solarized

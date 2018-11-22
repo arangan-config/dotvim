@@ -22,6 +22,10 @@
   endif
 
   let g:gui = has('gui_running') 
+  
+  if !exists('g:homeDir')
+     let g:homeDir = $HOME
+  endif
      
 "########## To Reload this file without closing vim ###########
   augroup myvimrc
