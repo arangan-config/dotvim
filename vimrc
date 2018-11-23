@@ -1,21 +1,25 @@
-"########## Pathogen First before anything else ########## 
-	"filetype off
-	"call pathogen#infect()
-    "call pathogen#helptags() " :Helptags   Enable this if you want vim to scan and load all docs from the bundles
+"########## Auto-Detection && GLOBAL Variables Init ########## 
+   if !exists('g:homeDir')
+   	let g:homeDir = $HOME
+   endif
 
-	set ignorecase
-
-"########## Auto-Detection########## 
   if has("mac") || has("unix")
+    let g:vimDirectory = join([g:homeDir, '\.vim'],'')
     let sys=substitute(system('uname'),'\n','','')
-      if sys == 'Darwin' || sys == 'Mac'
-        let g:os="osx"
-      elseif sys == "Linux"
-        let g:os = "Linux"
-      else
-        let g:os = "Unknown"
-      endif
+    if sys == 'Darwin' || sys == 'Mac'
+      let g:os="osx"
+    elseif sys == "Linux"
+      let g:os = "Linux"
+    elseif sys == "FreeBSD"
+	  let g:os = "FreeBSD"
+	else
+      let g:os = "Unknown"
+    endif
+	 
   elseif has("win32") || has("win64")
+  
+	" We can use . to concat strings instead of join([g:homeDir, '\vimfiles'],'')  - as done in the next line
+	let g:vimDirectory = g:homeDir . '\vimfiles'
     let g:os='Windows'
   else
     let g:os="Unknown"
@@ -23,9 +27,42 @@
 
   let g:gui = has('gui_running') 
   
-  if !exists('g:homeDir')
-     let g:homeDir = $HOME
-  endif
+ 
+
+"########## Pathogen First before anything else -- CURRENTLY DISABLED ########## 
+	"filetype off
+	"call pathogen#infect()
+    "call pathogen#helptags() " :Helptags   Enable this if you want vim to scan and load all docs from the bundles
+
+"########## VIM-Plug before anything else ########## 
+"https://github.com/junegunn/vim-plug/
+  call plug#begin(join([g:vimDirectory, '\bundle'],''))
+	
+	" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+	Plug 'junegunn/vim-easy-align'
+
+	" Any Valid URL is allowed
+	Plug 'https://github.com/jeetsukumaran/vim-buffergator.git'
+	Plug 'https://github.com/jlanzarotta/bufexplorer.git'
+	Plug 'https://github.com/kien/ctrlp.vim.git'
+	
+	" On-demand loading
+	Plug 'https://github.com/scrooloose/nerdtree.git', { 'on':  'NERDTreeToggle' }
+	
+	Plug 'https://github.com/ervandew/supertab.git'
+	Plug 'https://github.com/scrooloose/syntastic.git'
+	Plug 'https://github.com/PProvost/vim-ps1.git'
+	
+	Plug 'https://github.com/altercation/vim-colors-solarized.git'
+	Plug 'https://github.com/tpope/vim-vividchalk.git'
+	Plug 'https://github.com/vim-scripts/Wombat.git'
+
+	"Plugins to be installed only if needed
+	"Plug 'https://github.com/majutsushi/tagbar.git'
+	
+  call plug#end()
+	
+set ignorecase
      
 "########## To Reload this file without closing vim ###########
   augroup myvimrc
@@ -34,7 +71,7 @@
   augroup END
 
 "########## Maintain code folding after saving and reloading documents ##########
-  " ~/.vim/view  -- directory must be created
+  " g:vimDirectory/view  -- directory must be created
   "autocmd BufWinLeave .vimrc mkview
   "autocmd BufWinEnter .vimrc silent loadview
   autocmd BufWinLeave .* mkview
@@ -266,9 +303,9 @@
     :cnoremap <C-h> <Left>
 
 "########## Turn on/off Certain Plugins and theie default key mappings  ########## 
-    nnoremap <silent> <F10> :TagbarOpenAutoClose<CR>
-    nnoremap <silent> <F9> :TagbarToggle<CR>
-    nnoremap <silent> <F8> :TlistToggle<CR>
+    "nnoremap <silent> <F10> :TagbarOpenAutoClose<CR>
+    "nnoremap <silent> <F9> :TagbarToggle<CR>
+    "nnoremap <silent> <F8> :TlistToggle<CR>
    let g:buffergator_suppress_keymaps = 1
    let g:buffergator_autoexpand_on_split = 0 "disable resizing when calling buffergator
    let g:bufExplorerDisableDefaultKeyMapping=1 "disable this otherwise ,Leader B gets in the way
@@ -288,8 +325,8 @@
     ""autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
     autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
     "" build tags of your own project with Ctrl-F12
-    map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q <CR>
-    map <C-i> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q <CR>
+    "map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q <CR>
+    "map <C-i> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q <CR>
     "map  :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.vim/commontags
     let OmniCpp_NamespaceSearch = 1
     let OmniCpp_GlobalScopeSearch = 1
