@@ -42,13 +42,7 @@
 	Plug 'junegunn/vim-easy-align'
 
 	" Any Valid URL is allowed
-	Plug 'https://github.com/jeetsukumaran/vim-buffergator.git'
-	Plug 'https://github.com/jlanzarotta/bufexplorer.git'
-	Plug 'https://github.com/kien/ctrlp.vim.git'
-	
-	" On-demand loading
-	Plug 'https://github.com/scrooloose/nerdtree.git', { 'on':  'NERDTreeToggle' }
-	
+	Plug 'https://github.com/wellle/targets.vim.git'
 	Plug 'https://github.com/ervandew/supertab.git'
 	Plug 'https://github.com/scrooloose/syntastic.git'
 	Plug 'https://github.com/PProvost/vim-ps1.git'
@@ -56,6 +50,13 @@
 	Plug 'https://github.com/altercation/vim-colors-solarized.git'
 	Plug 'https://github.com/tpope/vim-vividchalk.git'
 	Plug 'https://github.com/vim-scripts/Wombat.git'
+	
+	" On-demand loading
+	Plug 'https://github.com/scrooloose/nerdtree.git', { 'on':  'NERDTreeToggle' }
+	Plug 'https://github.com/jeetsukumaran/vim-buffergator.git', { 'on': 'BuffergatorToggle' }
+	Plug 'https://github.com/jlanzarotta/bufexplorer.git', { 'on': 'BufExplorerVerticalSplit' }
+	Plug 'https://github.com/kien/ctrlp.vim.git', { 'on': ['CtrlPBuffer', 'CtrlPMRUFiles'] }	
+	
 
 	"Plugins to be installed only if needed
 	"Plug 'https://github.com/majutsushi/tagbar.git'
@@ -207,10 +208,10 @@ set ignorecase
     "nnoremap <Leader>t " This is mapped by tasklist default
 
    " Let's make it easy to edit this file (mnemonic for the key sequence is " 'e'dit 'v'imrc)
-     "nmap <silent> <Leader>ev :e $MYVIMRC<cr>
+     "nmap <silent> <Leader>te :e $MYVIMRC<cr>
   
    " And to source this file as well (mnemonic for the key sequence is " 's'ource 'v'imrc)
-     "nmap <silent> <Leader>sv :so $MYVIMRC<cr>:echo $MYVIMRC "refreshed!"<cr>
+     "nmap <silent> <Leader>ts :so $MYVIMRC<cr>:echo $MYVIMRC "refreshed!"<cr>
 
   "########## Search mappings ##########
     nnoremap <Leader>S :%s/\<<C-r><C-w>\>/
@@ -323,7 +324,7 @@ set ignorecase
   
   "CPP/C autocompletion
     ""autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
-    autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
+    "autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
     "" build tags of your own project with Ctrl-F12
     "map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q <CR>
     "map <C-i> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q <CR>
