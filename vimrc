@@ -4,7 +4,7 @@
    endif
 
   if has("mac") || has("unix")
-    let g:vimDirectory = join([g:homeDir, '\.vim'],'')
+    let g:vimDirectory = join([g:homeDir, '/.vim/'],'')
     let sys=substitute(system('uname'),'\n','','')
     if sys == 'Darwin' || sys == 'Mac'
       let g:os="osx"
@@ -19,7 +19,7 @@
   elseif has("win32") || has("win64")
   
 	" We can use . to concat strings instead of join([g:homeDir, '\vimfiles'],'')  - as done in the next line
-	let g:vimDirectory = g:homeDir . '\vimfiles'
+	let g:vimDirectory = g:homeDir . '\vimfiles\'
     let g:os='Windows'
   else
     let g:os="Unknown"
@@ -36,7 +36,7 @@
 
 "########## VIM-Plug before anything else ########## 
 "https://github.com/junegunn/vim-plug/
-  call plug#begin(join([g:vimDirectory, '\bundle'],''))
+  call plug#begin(join([g:vimDirectory, 'bundle'],''))
 	
 	" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 	Plug 'junegunn/vim-easy-align'
