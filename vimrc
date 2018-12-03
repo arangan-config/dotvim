@@ -235,11 +235,11 @@ set ignorecase
     nmap <silent> <C-Up> <A-k>
     nmap <silent> <C-Down> <A-j>
     if !g:gui
-      nmap <silent> <A-b> :BuffergatorToggle<cr>
-      nmap <silent> \b :BufExplorerVerticalSplit<Cr>
+		nmap <silent> <A-b> :BuffergatorToggle<cr>
+		nmap <silent> \b :BufExplorerVerticalSplit<Cr>
     else
-      nmap <silent> <A-b> :BufExplorerVerticalSplit<Cr>
-      nmap <silent> \b :BuffergatorToggle<cr>
+		nmap <silent> <A-b> :BuffergatorToggle<cr>
+		nmap <silent> \b :BufExplorerVerticalSplit<Cr>
     endif
     nmap <silent> <A-h> 0
     nmap <silent> <A-l> $
