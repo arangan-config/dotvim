@@ -40,7 +40,8 @@
 	
 	" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 	Plug 'junegunn/vim-easy-align'
-
+	Plug 'itchyny/lightline.vim'
+	
 	" Any Valid URL is allowed
 	Plug 'https://github.com/wellle/targets.vim.git'
 	Plug 'https://github.com/ervandew/supertab.git'
@@ -87,17 +88,17 @@ set ignorecase
 
 "########## Set the status line ########## 
   set laststatus=2
-  set statusline=   " clear the statusline for when vimrc is reloaded
-  set statusline+=%-.3h%m%r%w                      " flags
-  set statusline+=%-3.3n\                      " buffer number
-  set statusline+=%-14.(%c,%l/%L%V%)%<%P        " offset
-  set statusline+=\ \ \ ASCII=%b,Hex=0x%-8B\                   " current char
-  set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
-  set statusline+=%=                           " right align
-  set statusline+=%f\                          " file name
-  set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
-  set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-  set statusline+=%{&fileformat}]              " file format
+  "set statusline=   " clear the statusline for when vimrc is reloaded
+  "set statusline+=%-.3h%m%r%w                      " flags
+  "set statusline+=%-3.3n\                      " buffer number
+  "set statusline+=%-14.(%c,%l/%L%V%)%<%P        " offset
+  "set statusline+=\ \ \ ASCII=%b,Hex=0x%-8B\                   " current char
+  "set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+  "set statusline+=%=                           " right align
+  "set statusline+=%f\                          " file name
+  "set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+  "set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+  "set statusline+=%{&fileformat}]              " file format
 
 "########## Fold Expressions ##########
   set foldenable

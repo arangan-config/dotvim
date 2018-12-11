@@ -2,6 +2,7 @@
   if g:os=='Windows' || g:os=='Linux'
     set guioptions -=m
     set guioptions -=T
+	set guioptions -=r
   endif
 
 "Font and colorscheme
